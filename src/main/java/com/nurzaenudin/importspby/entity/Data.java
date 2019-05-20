@@ -23,6 +23,12 @@ public class Data {
     @JsonProperty("title")
     private String title;
     
+    @JsonProperty("header")
+    private List<List<Isiheader>> isiheader;
+    
+    @JsonProperty("body")
+    public List<List<Body>> body;
+    
     public String getTitle() {
         return title;
     }
@@ -31,14 +37,45 @@ public class Data {
         this.title = title;
     }
 
+    public List<List<Isiheader>> getIsiheader() {
+        return isiheader;
+    }
 
+    public void setIsiheader(List<List<Isiheader>> isiheader) {
+        this.isiheader = isiheader;
+    }
 
+    public List<List<Body>> getBody() {
+        return body;
+    }
 
+    public void setBody(List<List<Body>> body) {
+        this.body = body;
+    }
 
     @Override
     public String toString() {
-        return "Data{" + "title="  + title + "}";
+        return "Data{" + "title=" + title + ", isiheader=" + isiheader + ", body=" + body + '}';
     }
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+
+
+
+
+
     
     
     

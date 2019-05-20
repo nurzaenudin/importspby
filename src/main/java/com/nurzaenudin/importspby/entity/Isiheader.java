@@ -14,41 +14,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Spby {
+public class Isiheader {
 
-    public Spby() {
+    public Isiheader() {
     }
     
-    @JsonProperty("status")
-    private String status;
-    
-    @JsonProperty("data")
-    public Data data;
+    @JsonProperty("value")
+    private String value;
 
-    public String getStatus() {
-        return status;
+    public String getValue() {
+        return value;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Data getData() {
-        return data;
-    }
-
-    public void setData(Data data) {
-        this.data = data;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override
     public String toString() {
-        return "Spby{" + "status=" + status + ", data=" + data + '}';
+        return "Isiheader{" + "value=" + value + '}';
     }
-
-    
-    
-    
     
     
 }
