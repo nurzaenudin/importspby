@@ -40,7 +40,16 @@ public class ImportspbyApplication {
             try {
                 Spby spby= mapper.readValue(responseSpby, Spby.class);
                 log.info(spby.toString());
-                System.out.println(spby.data.body.get(2));
+                System.out.println(spby.data.body.get(0));
+                List s;
+                s = spby.data.body.get(0);
+                for (int i=0; i<s.size();i++)
+                {
+                    System.out.println(s.get(i).toString());
+                }
+                System.out.println(s.get(2).toString());
+                
+                
                 
             } catch (IOException e) {
                 e.printStackTrace();

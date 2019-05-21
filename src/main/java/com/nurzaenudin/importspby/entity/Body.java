@@ -33,7 +33,7 @@ public class Body {
     @Override
     public String toString() {
         
-        return "Body{" + "value=" + value + '}';
+        return value;
     }
     
     public String cetakSpby(){
