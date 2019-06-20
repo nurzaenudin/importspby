@@ -64,7 +64,7 @@ public class ImportspbyApplication implements CommandLineRunner {
             List a;
             a = spby.data.body;
 //            int jumlahdata=a.size();
-            int jumlahdata=100;
+            int jumlahdata=a.size();
             for (int i = 0; i < jumlahdata; i++) {
 //                System.out.println(a.get(i).toString());
                 List b;
@@ -86,10 +86,13 @@ public class ImportspbyApplication implements CommandLineRunner {
 
                 String alamatsupplier = b.get(6).toString();
 
-                Double nilai = Double.valueOf(b.get(7).toString().replace(",", ""));
-
+                Double nilai = Double.valueOf(b.get(7).toString().replace(",", ""));  
+                
                 String akunpajak = b.get(8).toString();
-
+                if (b.get(8).toString() == null) {
+                    akunpajak = "";
+                }            
+                
                 Double nilaipajak = Double.valueOf(b.get(9).toString().replace(",", ""));
 
                 String nipppk = b.get(10).toString();
@@ -108,8 +111,23 @@ public class ImportspbyApplication implements CommandLineRunner {
                 ss.setNilaipajak(nilaipajak);
                 ss.setNipppk(nipppk);
                 ss.setUraian(uraian);
-                System.out.println(ss.toString());
-                ssdao.save(ss);
+//                System.out.println(ss.toString());
+//              System.out.println(kodesatker);
+                if (kodesatker.equals("409294")) {
+                    List cariSpby = ssdao.findByNomorspbyAndAkunpajak(nospby, akunpajak);
+//                  System.out.println(cariSpby.size());
+                    if (cariSpby.size() == 0) {
+                        ssdao.save(ss);
+                        log.info("Berhasil Simpan " + nospby);
+                    }else{
+                        log.info("Data sudah ada: "+nospby);
+                    }
+                }
+                
+                
+
+                
+                
             }
 
 //           List q;
