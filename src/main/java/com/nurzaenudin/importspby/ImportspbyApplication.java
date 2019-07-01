@@ -61,43 +61,43 @@ public class ImportspbyApplication implements CommandLineRunner {
             Spby spby = mapper.readValue(responseSpby, Spby.class);
             //log.info(spby.toString());
             //System.out.println(spby.data.body.get(0));
-            List a;
-            a = spby.data.body;
+            List dataspbysakti;
+            dataspbysakti = spby.data.body;
 //            int jumlahdata=a.size();
-            int jumlahdata=a.size();
+            int jumlahdata=dataspbysakti.size();
             for (int i = 0; i < jumlahdata; i++) {
 //                System.out.println(a.get(i).toString());
-                List b;
-                b = (List) a.get(i);
+                List spbysakti;
+                spbysakti = (List) dataspbysakti.get(i);
 //                  System.out.println(b.get(j).toString());
-                String nourut = b.get(0).toString();
+                String nourut = spbysakti.get(0).toString();
 
-                String kodesatker = b.get(1).toString();
+                String kodesatker = spbysakti.get(1).toString();
 
-                String nospby = b.get(2).toString();
+                String nospby = spbysakti.get(2).toString();
 
                 Locale lokal = new Locale("en", "US");
                 SimpleDateFormat formatter2 = new SimpleDateFormat("dd-MMM-yy", lokal);
-                Date tglspby = formatter2.parse(b.get(3).toString());
+                Date tglspby = formatter2.parse(spbysakti.get(3).toString());
 
-                String namasupplier = b.get(4).toString();
+                String namasupplier = spbysakti.get(4).toString();
 
-                String npwpsupplier = b.get(5).toString();
+                String npwpsupplier = spbysakti.get(5).toString();
 
-                String alamatsupplier = b.get(6).toString();
+                String alamatsupplier = spbysakti.get(6).toString();
 
-                Double nilai = Double.valueOf(b.get(7).toString().replace(",", ""));  
+                Double nilai = Double.valueOf(spbysakti.get(7).toString().replace(",", ""));  
                 
-                String akunpajak = b.get(8).toString();
-                if (b.get(8).toString() == null) {
+                String akunpajak = spbysakti.get(8).toString();
+                if (spbysakti.get(8).toString() == null) {
                     akunpajak = "";
                 }            
                 
-                Double nilaipajak = Double.valueOf(b.get(9).toString().replace(",", ""));
+                Double nilaipajak = Double.valueOf(spbysakti.get(9).toString().replace(",", ""));
 
-                String nipppk = b.get(10).toString();
+                String nipppk = spbysakti.get(10).toString();
 
-                String uraian = b.get(11).toString();
+                String uraian = spbysakti.get(11).toString();
 
                 Spbysakti ss = new Spbysakti();
                 ss.setKodesatker(kodesatker);
